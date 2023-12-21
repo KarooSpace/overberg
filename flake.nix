@@ -1,27 +1,23 @@
 {
-  description = "Build a cargo project without extra checks";
+  description = "KarooSpace Mission Control";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    crane = {
-      url = "github:ipetkov/crane";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    flake-utils.url = "github:numtide/flake-utils";
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    flake-utils.url  = "github:numtide/flake-utils";
   };
 
   outputs = {
-    self,
     nixpkgs,
-    crane,
+    rust-overlay,
     flake-utils,
     ...
   }:
-    flake-utils.lib.eachDefaultSystem (system: let
+    flake-utils.lib.eachDefaultSystem (system:
+    let
+      overlays = [ (import rust-overlay) ];
       pkgs = import nixpkgs {
-        inherit system;
+        inherit system overlays;
       };
 
       buildInputs = with pkgs; [
@@ -38,30 +34,21 @@
         xorg.libXcursor
         xorg.libXi
         xorg.libXrandr
+        systemd
+        pkg-config
+        llvm
+        openssl
+        systemd
+        cargo-espflash
       ];
-      my-crate = crane.lib.${system}.buildPackage {
-        src = ./.;
-        inherit buildInputs;
-
-        nativeBuildInputs = with pkgs; [
-          pkg-config
-          gtk-layer-shell
-          gtk3
-        ];
-      };
     in {
-      checks = {
-        inherit my-crate;
-      };
-
-      packages.default = my-crate;
-
-      apps.default = flake-utils.lib.mkApp {
-        drv = my-crate;
-      };
-
       devShells.default = pkgs.mkShell {
-        inputsFrom = builtins.attrValues self.checks;
+        buildInputs = with pkgs; [
+          (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+            extensions = [ "rust-src" ];
+            targets = [ "riscv32imc-unknown-none-elf"];
+          }))
+        ] ++ buildInputs;
 
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
         # Extra inputs can be added here

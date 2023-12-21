@@ -1,7 +1,12 @@
+use std::time::Duration;
+
 use iced::widget::{button, column, container, text};
 use iced::{executor, system, Application, Command, Element, Length, Settings, Theme};
+use std::io::{BufRead, BufReader};
 
 use bytesize::ByteSize;
+
+pub mod font;
 
 pub fn main() -> iced::Result {
     Example::run(Settings::default())
@@ -34,7 +39,7 @@ impl Application for Example {
     }
 
     fn title(&self) -> String {
-        String::from("System Information - Iced")
+        String::from("OVERBERG")
     }
 
     fn update(&mut self, message: Message) -> Command<Message> {
@@ -124,6 +129,20 @@ impl Application for Example {
                     information.graphics_backend
                 ));
 
+                let port = serialport::new("/dev/ttyACM0", 115_200)
+                    .timeout(Duration::from_secs(1))
+                    .open()
+                    .expect("Failed to open port");
+
+                let mut buf = vec![0; 128];
+                let mut reader = BufReader::with_capacity(2048, port);
+                let len = reader.read_until(b':', &mut buf).unwrap();
+
+                let reading = text(format!(
+                    "{len} bytes read: {:?}",
+                    String::from_utf8(buf).unwrap()
+                ));
+
                 column![
                     system_name.size(30),
                     system_kernel.size(30),
@@ -135,6 +154,7 @@ impl Application for Example {
                     memory_used.size(30),
                     graphics_adapter.size(30),
                     graphics_backend.size(30),
+                    reading.size(30),
                     button("Refresh").on_press(Message::Refresh)
                 ]
                 .spacing(10)
@@ -150,3 +170,20 @@ impl Application for Example {
             .into()
     }
 }
+
+// fn list_usb_devices() -> Vec<String> {
+//     rusb::devices()
+//         .unwrap()
+//         .iter()
+//         .map(|device| {
+//             let device_desc = device.device_descriptor().unwrap();
+//             format!(
+//                 "Bus {:03} Device {:03} ID {:04x}:{:04x}",
+//                 device.bus_number(),
+//                 device.address(),
+//                 device_desc.vendor_id(),
+//                 device_desc.product_id()
+//             )
+//         })
+//         .collect()
+// }

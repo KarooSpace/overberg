@@ -1,0 +1,70 @@
+{
+    "frameEnd": "",
+    "frameStart": "",
+    "groups": [
+        {
+            "datasets": [
+                {
+                    "alarm": 360,
+                    "fft": true,
+                    "fftSamples": 32,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 180,
+                    "min": -180,
+                    "title": "Pitch",
+                    "units": "",
+                    "value": "%1",
+                    "widget": ""
+                },
+                {
+                    "alarm": 0,
+                    "fft": true,
+                    "fftSamples": 32,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 180,
+                    "min": -180,
+                    "title": "Roll",
+                    "units": "",
+                    "value": "%2",
+                    "widget": ""
+                },
+                {
+                    "alarm": 0,
+                    "fft": true,
+                    "fftSamples": 32,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 180,
+                    "min": -180,
+                    "title": "Yaw",
+                    "units": "",
+                    "value": "%3",
+                    "widget": ""
+                },
+                {
+                    "alarm": 0,
+                    "fft": true,
+                    "fftSamples": 32,
+                    "graph": true,
+                    "led": false,
+                    "log": false,
+                    "max": 0,
+                    "min": 0,
+                    "title": "Pitch FFT",
+                    "units": "",
+                    "value": "%4",
+                    "widget": ""
+                }
+            ],
+            "title": "Attitude",
+            "widget": ""
+        }
+    ],
+    "separator": ",",
+    "title": "ESP32 Sensor Readings"
+}
