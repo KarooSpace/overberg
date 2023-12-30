@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 bytesize = "1.3.0"
 chrono = "0.4.31"
-iced = { git = "https://github.com/iced-rs/iced.git", rev = "eaaea41", features = ["system", "canvas", "tokio"] }
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "dd249a1", features = ["system", "canvas", "tokio"] }
 plotters = "0.3.5"
 rusb = "0.9.3"
 serialport = "4.2.2"

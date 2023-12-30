@@ -1412,7 +1412,7 @@ dependencies = [
 [[package]]
 name = "iced"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_core",
  "iced_futures",
@@ -1425,7 +1425,7 @@ dependencies = [
 [[package]]
 name = "iced_core"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "bitflags 1.3.2",
  "instant",
@@ -1440,7 +1440,7 @@ dependencies = [
 [[package]]
 name = "iced_futures"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "futures",
  "iced_core",
@@ -1453,7 +1453,7 @@ dependencies = [
 [[package]]
 name = "iced_graphics"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "bitflags 1.3.2",
  "bytemuck",
@@ -1474,7 +1474,7 @@ dependencies = [
 [[package]]
 name = "iced_renderer"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_graphics",
  "iced_tiny_skia",
@@ -1487,7 +1487,7 @@ dependencies = [
 [[package]]
 name = "iced_runtime"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_core",
  "iced_futures",
@@ -1497,7 +1497,7 @@ dependencies = [
 [[package]]
 name = "iced_style"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_core",
  "once_cell",
@@ -1507,7 +1507,7 @@ dependencies = [
 [[package]]
 name = "iced_tiny_skia"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "bytemuck",
  "cosmic-text",
@@ -1524,7 +1524,7 @@ dependencies = [
 [[package]]
 name = "iced_wgpu"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "bitflags 1.3.2",
  "bytemuck",
@@ -1543,7 +1543,7 @@ dependencies = [
 [[package]]
 name = "iced_widget"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_renderer",
  "iced_runtime",
@@ -1556,7 +1556,7 @@ dependencies = [
 [[package]]
 name = "iced_winit"
 version = "0.12.0"
-source = "git+https://github.com/iced-rs/iced.git?rev=eaaea41#eaaea414b8544b883c0388a5a92cbb0df7fc6633"
+source = "git+https://github.com/iced-rs/iced.git?rev=dd249a1#dd249a1d11c68b8fee1828d58bae158946ee2ebd"
 dependencies = [
  "iced_graphics",
  "iced_runtime",
@@ -1674,6 +1674,10 @@ checksum = "cee9c64da59eae3b50095c18d3e74f8b73c0b86d2792824ff01bbce68ba229ca"
 dependencies = [
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "kaze"
+version = "0.1.0"
 
 [[package]]
 name = "khronos-egl"

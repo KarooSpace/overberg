@@ -3,6 +3,7 @@
 members = [
   "ground",
   "hadeda",
+  "kaze",
   "proto",
 ]
 resolver = "2"
