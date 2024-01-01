@@ -5,6 +5,7 @@ members = [
   "hadeda",
   "kaze",
   "proto",
+  "music",
 ]
 resolver = "2"
 
